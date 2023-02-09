@@ -27,7 +27,7 @@ void main() {
   runApp(const MyApp());
 }
 
-void test(/*String? first, String? middle, String? last*/) {
+/*void test(/*String? first, String? middle, String? last*/) {
   /*
   //if else
   //final name = 'foo'; //can never be changed once initialised
@@ -140,7 +140,7 @@ enum AnimalType {
   cat,
   dog,
   bunny;
-}
+}*/
 
 /*void test2(AnimalType animalType) {
   switch (animalType) {
@@ -160,7 +160,7 @@ void makeSureThisIsaCat(AnimalType animalType) {
   if (animalType != AnimalType.cat) return;//Rest of lines will only execute if cat
 }*/
 
-class Person {
+/*class Person {
   //definition of attributes and functions of a thing
   final String name;
   //constructors-allow to create an instance of a class with optional parameters
@@ -178,13 +178,175 @@ class Person {
   void breathe() {
     print('breathing');
   }
+}*/
+
+/*abstract class LivingThing {
+  void breathing() {
+    print('Every living thing breathes');
+  }
+
+  void moving() {
+    print('I am moving');
+  }
 }
 
+//abstract classes cant be instantiented, their functionalities are simply to be used by others
+//inheritance and subclassing
+//avoid repetition by using attributes from another class
+class Cat extends LivingThing {}
+
 void test3() {
-  final person = Person('foo bar'); //object - instance of the thing, eample
-  print(person.name);
-  person.printName();
-  person.run();
+  //final person = Person('foo bar'); //object - instance of the thing, eample
+  // print(person.name);
+  //person.printName();
+  //person.run();
+
+//inheritance
+  final fluffers = Cat();
+  fluffers.breathing();
+
+//abstract classes
+  //final thing = LivingThing();//gives error
+
+}*/
+
+/*class Cat {
+  final String name;
+  Cat(this.name); //normal constructor
+  //factory constructors-can return instances that are not of same class
+  // factory Cat.fluffBalls() {
+  // return Cat('Fluff Ball');
+//  }
+
+  @override
+  bool operator ==(covariant Cat other) => other.name == name;
+  @override
+  int get hashCode => name.hashCode;
+}
+
+void test4() {
+  //final fluffBall = Cat('Fluff ball'); //calling constructor
+//print(fluffBall.name);
+
+  //final fluffBal = Cat.fluffBalls();//calling factory constructor
+  //print(fluffBal.name);
+
+  //CUSTOM OPERATORS
+  final cat1 = Cat('foo');
+  final cat2 = Cat('foo');
+  if (cat1 == cat2) {
+    print('They are equal');
+  } else {
+    print('They are not equal');
+  }
+}*/
+
+/*class Cat {
+  final String name;
+  Cat(this.name);
+}
+
+extension Run on Cat {
+  //extensions-adding logic to existing classes
+
+  void run() {
+    print('Cat $name is running');
+  }
+}
+
+class Person {
+  final String firstName;
+  final String lastName;
+
+  Person(this.firstName, this.lastName);
+}
+
+extension Fullname on Person {
+  String get fullname => '$firstName $lastName';
+}
+
+void advanced() {
+  final meow = Cat('fluffers');
+  print(meow.name);
+  meow.run();
+
+  final foo = Person('FOO', 'BAR');
+  print(foo.firstName);
+  print(foo.lastName);
+  print(foo.fullname);
+}*/
+/*
+//asynchronous
+//future- data returned in the future
+//async/await-mechanism for controlling asynchronous flow of data
+Future<int> heavyFutureThatMultipliesByTwo(int a) {
+  return Future.delayed(const Duration(seconds: 3), () => a * 2);
+}
+
+void future() async {
+  //async marks a function telling that it wont return a value immediately
+  final result = await heavyFutureThatMultipliesByTwo(10);//await- waits for the result then returns it
+  print(result);
+}*/
+
+/*
+//Stream-pipe of data
+Stream<String> getName() {
+  // return Stream.value('Foo');
+  return Stream.periodic(const Duration(seconds: 1), (value) {
+    return 'Foo';
+  });
+}
+
+void stream() async {
+  await for (final value in getName()) {
+    print(value);
+  }
+  print('Stream finished working');
+}
+*/
+/*
+//GENERATORS-generating iterables, marked with sync and async
+Iterable<int> getOneTwoThree() sync* {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+void generate() {
+  for (final value in getOneTwoThree()) {
+    print(value);
+    if (value==2){
+      break;
+    }
+  }
+}
+*/
+//GENERICS-AVOID REWRITING SIMILAR CODE
+class PairofStrings {
+  final String value1;
+  final String value2;
+
+  PairofStrings(this.value1, this.value2);
+}
+
+class PairofIntegers {
+  final int value1;
+  final int value2;
+
+  PairofIntegers(this.value1, this.value2);
+}
+
+class Pair<A, B> {
+  final A value1;
+  final B value2;
+
+  Pair(this.value1, this.value2);
+}
+
+void generics() {
+  final names = Pair('foo', 'bar');
+  print(names);
 }
 
 class MyApp extends StatelessWidget {
@@ -198,7 +360,13 @@ class MyApp extends StatelessWidget {
     //test(null, 'bar', 'baz');
     // trial([]);
     //test2(AnimalType.cat);
-    test3();
+    //test3();
+    //test4();
+    //advanced();
+    //future();
+    //stream();
+    //generate();
+    generics();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
