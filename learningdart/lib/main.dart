@@ -1,7 +1,190 @@
 import 'package:flutter/material.dart';
 
+/*
+//data types
+//numbers
+int number = 2;
+double decimal = 4.5;
+//letters
+String letter = "fiona";
+//boolean
+bool state = false;
+//list
+List array = [0, 1, 2, 3];
+
+//functions
+String getfullname(String firstName, String lastname) {
+  return '$firstName $lastname'; //INterpolation
+  //return firstName + ' ' + lastname;
+}
+
+String myFavoriteNumber(int fave) {
+  return ' ';
+}
+
+String addition(int nums, int deci) => '$nums + $deci';*/
 void main() {
   runApp(const MyApp());
+}
+
+void test(/*String? first, String? middle, String? last*/) {
+  /*
+  //if else
+  //final name = 'foo'; //can never be changed once initialised
+  const name = 'foo';
+  if (name == 'foo') {
+    print("Yes, this is foo.");
+  } else if (name == 'bar') {
+    print("No, this is not foo.");
+  } else {
+    //print("I don't know what this is.");
+    print('I don\'t know what this is.');
+  }*/
+
+/*
+  //operators
+  var age = 20;
+  print(age);
+  //INFIX OPERATORS
+  double halfAge = age / 2;
+  print(halfAge);
+  int doubleAge = age * 2;
+  print(doubleAge);
+
+  //PREFIX OPERATORS
+  int ageMinusOne = --age;
+  print(ageMinusOne);
+  int agePlusOne = ++age;
+  print(agePlusOne);
+
+  //LOGICAL OPERATORS
+  //==
+  //=>
+  //<=
+  //!=
+  */
+
+/*
+  //LISTS-a collection of homogenous things
+  List names = ["fiona", "annette", "betty","betty"];
+  int length = names.length;
+  print(length);
+  names.add("agnes");
+  print(names);
+  */
+
+  /*//SETS-a collection of unique things
+  var setValues = {"foo", "bar", "baz", 1, 5.6};
+  print(setValues);
+  setValues.add("foo");
+  print(setValues);
+  */
+
+  /*
+  //MAPS-HOLD KEY-VALUE PAIRS OF INFORMATION
+  var person = {'age': 20, 'name': 'fiona'};//keys need to be unique
+  print(person);
+  */
+
+  /*
+  //SOUND NULL-SAFETY
+  //MAKING A DATA TYPE NULLABLE
+  //String? name = null;
+  String? name;
+  print(name);
+  name = 'foo';
+  print(name);
+
+  List<int>? numbers;//list can be null but cant have null values
+  print(numbers);
+  numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  print(numbers);
+  
+  List<String?>? letters;//list can be null and can have null values
+  letters = ['one', 'two',null];
+  print(letters);
+  */
+
+  /*
+  //??operrator- checks if left operand is null then right 
+  const String? first = null;
+  const String? middle = null;
+  const String? last = 'baz';
+
+  const firstNonNullValue = first ?? middle ?? last;
+  print(firstNonNullValue);
+  */
+
+  /*
+  // null-aware operator
+  String? name = first;
+  name ??= middle;
+  print(name);
+  */
+}
+/*
+//conditional invocation
+void trial(List<String>? names) {
+  final length = names?.length ?? 0;
+  print("The length of the list is " '$length');
+}*/
+
+//enumerations-named list of related items
+enum PersonProperties {
+  firstName,
+  lastName,
+  age;
+}
+
+enum AnimalType {
+  cat,
+  dog,
+  bunny;
+}
+
+/*void test2(AnimalType animalType) {
+  switch (animalType) {
+    case AnimalType.bunny:
+      print('bunny');
+      break;
+    case AnimalType.cat:
+      print('cat');
+      break;
+    case AnimalType.dog:
+      print('dog');
+  }
+  print('FUNCTION IS FINISHED');
+}
+
+void makeSureThisIsaCat(AnimalType animalType) {
+  if (animalType != AnimalType.cat) return;//Rest of lines will only execute if cat
+}*/
+
+class Person {
+  //definition of attributes and functions of a thing
+  final String name;
+  //constructors-allow to create an instance of a class with optional parameters
+  Person(this.name);
+
+  void printName() {
+    //method, functions in a class
+    print(name);
+  }
+
+  void run() {
+    print('running');
+  }
+
+  void breathe() {
+    print('breathing');
+  }
+}
+
+void test3() {
+  final person = Person('foo bar'); //object - instance of the thing, eample
+  print(person.name);
+  person.printName();
+  person.run();
 }
 
 class MyApp extends StatelessWidget {
@@ -10,6 +193,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //print(getfullname('Foo', 'Bar'));
+    //print(addition(2, 5));
+    //test(null, 'bar', 'baz');
+    // trial([]);
+    //test2(AnimalType.cat);
+    test3();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
