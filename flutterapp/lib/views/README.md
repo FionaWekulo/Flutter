@@ -1,0 +1,2 @@
+This repository contains a registration, email verification and login page created using flutter.
+It makes use of simple concepts such as stateful and stateless widgets, routes, error handling, firebase console and authentication.
